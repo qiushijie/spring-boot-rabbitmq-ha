@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.2.4.RELEASE'
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:2.2.4.RELEASE'
+        }
+    }
+}
